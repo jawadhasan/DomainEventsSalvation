@@ -45,9 +45,15 @@ namespace ExampleCode
             //eventAggregatorDemo.Run();
             #endregion
 
-
+            ////******************Domain Events Demo**********************************
             //var domainEventsDemo = new DomainEventsDemo();
             //domainEventsDemo.Run();
+
+
+            ////******************PipeLine Demo**********************************
+            //var pipeLineDemo = new PipeLineDemo.PipeLineDemo();
+            //pipeLineDemo.Run();
+
 
 
             Console.ReadKey();
