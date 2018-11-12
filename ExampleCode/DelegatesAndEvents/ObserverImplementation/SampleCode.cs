@@ -67,6 +67,30 @@ namespace ExampleCode.DelegatesAndEvents.ObserverImplementation
     }
 
 
+    public static class ClassicObserverDemo
+    {
+        public static void RunDemo1()
+        {
+            Console.WriteLine("*********Demo1***********");
+            var doerSubect = new Doer();
+            doerSubect.Attach(new UserInterface());
+            doerSubect.Attach(new Logger());
+            doerSubect.DoSomething($"{DateTime.UtcNow}");
+        }
+
+        public static void RunDemo2()
+        {
+            Console.WriteLine("*********Demo2***********");
+            var doerSubject2 = new Doer2();
+            doerSubject2.Attach(new Logger2());
+            doerSubject2.DoSomething($"{DateTime.UtcNow}");
+        }
+    }
+
+
+
+
+
     /*
      * Another variation: Passing a reference of subject to observer
      */
@@ -124,4 +148,7 @@ namespace ExampleCode.DelegatesAndEvents.ObserverImplementation
             Console.WriteLine($"Logger2 {sender.Data}");
         }
     }
+
+
+
 }

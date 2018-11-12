@@ -82,14 +82,15 @@ namespace ExampleCode.DelegatesAndEvents.EventsCode
 
 
 
-    public class Worker
+    public class ClockDemo
     {
-        public Worker()
+
+        public void Run()
         {
             Work();
         }
 
-        public void Work()
+        private void Work()
         {
             var clock = new Clock();
 

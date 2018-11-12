@@ -82,5 +82,22 @@ namespace ExampleCode.DelegatesAndEvents.ObserverImplementation
             }
         }
     }
-    
+
+
+    public class ObserViaEventDemo
+    {
+        public void Run()
+        {
+            var st = new StockTicker();
+
+            // Create New observers to listen to the stock ticker
+            GoogleMonitor gf = new GoogleMonitor(st);
+            MicrosoftMinitor mf = new MicrosoftMinitor(st);
+
+            // Load the Sample Stock Data
+            foreach (var s in SampleData.getNext())
+                st.Stock = s;
+        }
+    }
+
 }

@@ -34,13 +34,13 @@ namespace ExampleCode.DelegatesAndEvents.DelegateCode
         }
     }
 
-    public class Worker
+    public class MediaPlayerDemo
     {
-        public Worker()
+        public void Run()
         {
             Work();
         }
-        public void Work()
+        private void Work()
         {
             var mediaInventory = new MediaInventory();
             var recordPlayer = new RecordPlayer();

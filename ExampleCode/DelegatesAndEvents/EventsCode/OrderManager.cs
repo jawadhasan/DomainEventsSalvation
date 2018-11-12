@@ -70,4 +70,42 @@ namespace ExampleCode.DelegatesAndEvents.EventsCode
             CustomerName = customerName;
         }
     }
+
+
+
+    public class OrderManagerDemo
+    {
+        public void Run()
+        {
+            Console.WriteLine("Setting up OrderManager");
+            var orderManager = new OrderManager();
+
+            //Event Wiring
+            orderManager.OrderRejected += OrderManager_OrderRejected;
+            orderManager.OrderCreated += (s, e) => Console.WriteLine($"Order {e.Id} was created for customer: {e.CustomerName}");
+            orderManager.OrderApproved += (s, e) => Console.WriteLine($"order {e.Id} was approved. Email this");
+
+            
+            orderManager.AddOrder(new Order(1, "Customer1"));
+            Thread.Sleep(1000);
+
+            orderManager.AddOrder(new Order(2, "Customer2"));
+            Thread.Sleep(1000);
+
+            orderManager.AddOrder(new Order(3, "Customer3"));
+            Thread.Sleep(1000);
+
+            orderManager.AddOrder(new Order(4, "Customer4"));
+            Thread.Sleep(1000);
+
+            orderManager.AddOrder(new Order(4, "Customer4"));
+            Thread.Sleep(1000);
+
+            orderManager.ProcessOrders();
+        }
+        private static void OrderManager_OrderRejected(object sender, OrderEventArgs e)
+        {
+            Console.WriteLine($"Order {e.Id} for customer {e.CustomerName} was rejected.");
+        }
+    }
 }

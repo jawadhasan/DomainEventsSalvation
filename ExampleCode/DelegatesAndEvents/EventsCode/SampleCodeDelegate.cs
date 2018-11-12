@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 
 namespace ExampleCode.DelegatesAndEvents.EventsCode
 {
     //You can put this into a separate class, if you want
     public delegate void WorkPerformedHandler(int hours, WorkType workType);
-
 
     public class ReportWorker
     {
@@ -90,5 +87,32 @@ namespace ExampleCode.DelegatesAndEvents.EventsCode
         GenerateReports,
         PrintReports,
         EmailReports
+    }
+
+
+
+
+    public class EventWithDelegateDemo
+    {
+        public void Run()
+        {
+            var reportWorker = new ReportWorker();
+
+            //various ways are commented below
+            //reportWorker.WorkPerformed += new EventHandler<WorkPerformedEventArgs>(ReportWorker_WorkPerformed);
+
+            //reportWorker.WorkPerformed += delegate(object sender, WorkPerformedEventArgs e) {
+            //    Console.WriteLine($"{e.WorkType}: {e.Hours}");
+            //};
+
+            reportWorker.WorkPerformed += (s, e) => Console.WriteLine($"{e.WorkType}: {e.Hours}");
+            reportWorker.GenerateReports();
+        }
+
+
+        private static void ReportWorker_WorkPerformed(object sender, WorkPerformedEventArgs e)
+        {
+            Console.WriteLine($"{e.WorkType}: {e.Hours}");
+        }
     }
 }
