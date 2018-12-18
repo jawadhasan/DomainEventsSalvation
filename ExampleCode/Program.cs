@@ -1,9 +1,11 @@
 ﻿using System;
+using ExampleCode.DataStructure.Nodes;
 using ExampleCode.DelegatesAndEvents.DelegateCode;
 using ExampleCode.DelegatesAndEvents.EventsCode;
 using ExampleCode.DelegatesAndEvents.ObserverImplementation;
 using ExampleCode.DomainEventDemoCode;
 using ExampleCode.Facade;
+
 
 namespace ExampleCode
 {
@@ -56,9 +58,15 @@ namespace ExampleCode
             //pipeLineDemo.Run();
 
 
-            var facadeDemo = new FacadeDemo();
-            facadeDemo.Run();
+            //var facadeDemo = new FacadeDemo();
+            //facadeDemo.Run();
 
+
+            //var genericsDemo = new GenericsDemo.GenericsDemo();
+            //genericsDemo.Run();
+
+            var nodesDemo = new NodesDemo();
+            nodesDemo.Run();
 
             Console.ReadKey();
             Console.WriteLine("Press enter to close...");
